@@ -16,14 +16,14 @@ test('renderWorkshop should render a div with a class of workshop and an h3 with
     expect.equal(actual.outerHTML, expected);
 });
 
-test('renderParticipant should render a div with a class of participants and a p element with a class of participant and the name of the participant', (expect) => {
+test('renderParticipant should render a div with a class of participants and a p element with a class of participant and the name of the participant and a p element with a class of participant-contact and the contact info', (expect) => {
     //Arrange
     // Set up your arguments and expectations
-    const expected = `<div class="participants"><p class="participant">Johnny Steel</p></div>`;
+    const expected = `<div class="participants"><p class="participant">Johnny Steel</p><p class="participant-contact">j.steel@example.com</p></div>`;
     
     //Act 
     // Call the function you're testing and set the result to a const
-    const actual = renderParticipant({ name: 'Johnny Steel' });
+    const actual = renderParticipant({ name: 'Johnny Steel', contact: 'j.steel@example.com' });
 
     //Expect
     // Make assertions about what is expected versus the actual result

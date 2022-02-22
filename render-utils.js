@@ -14,10 +14,14 @@ export function renderParticipant(participant) {
     const div = document.createElement('div');
     div.classList.add('participants');
 
-    const p = document.createElement('p');
-    p.classList.add('participant');
-    p.textContent = participant.name;
+    const pName = document.createElement('p');
+    pName.classList.add('participant');
+    pName.textContent = participant.name;
 
-    div.append(p);
+    const pContact = document.createElement('p');
+    pContact.classList.add('participant-contact');
+    pContact.textContent = participant.contact;
+
+    div.append(pName, pContact);
     return div;
 }
