@@ -3,6 +3,14 @@ const SUPABASE_KEY = '';
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+export async function fetchWorkshops() {
+    const resp = await client.from('workshops').select(`*, participants (*)`);
+
+    return checkError(resp);
+}
+
+
+
 export function getUser() {
     return client.auth.session() && client.auth.session().user;
 }
@@ -37,6 +45,6 @@ export async function logout() {
     return (window.location.href = '../');
 }
 
-// function checkError({ data, error }) {
-//     return error ? console.error(error) : data;
-// }
+function checkError({ data, error }) {
+    return error ? console.error(error) : data;
+}
