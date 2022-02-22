@@ -10,7 +10,7 @@ export async function fetchWorkshops() {
 }
 
 export async function createParticipant(participant) {
-    const resp = await client.from('participants').insert({ name: participant.name, workshop_id: participant.workshop_id });
+    const resp = await client.from('participants').insert({ name: participant.name, workshop_id: participant.workshop_id, contact: participant.contact });
 
     return checkError(resp);
 }
