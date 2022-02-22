@@ -26,3 +26,9 @@ async function displayWorkshops() {
     }
 }
 displayWorkshops();
+
+window.addEventListener('load', async () => {
+    const workshops = await fetchWorkshops();
+
+    displayWorkshops(workshops);
+});
