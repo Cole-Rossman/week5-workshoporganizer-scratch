@@ -9,6 +9,12 @@ export async function fetchWorkshops() {
     return checkError(resp);
 }
 
+export async function createParticipant(participant) {
+    const resp = await client.from('participants').insert({ name: participant.name, workshop_id: participant.workshop_id });
+
+    return checkError(resp);
+}
+
 export async function deleteParticipant(id) {
     const resp = await client.from('participants').delete().match({ id: id }).single();
 
