@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/reset.css">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/home.css">
     <link rel="stylesheet" href="./workshops.css">
 
     <title>Workshops Page</title>
@@ -18,14 +18,14 @@
 <body>
     <header>
         <div class="gutter-right logo">
-            <img src="assets/big-logo.png" />
+            <img src="../assets/big-logo.png" />
         </div>
     </header>
     <button id="logout">Logout</button>
     <main class="workshops-main">
     <a id="add-participant" href="../create-page/">Add participant</a>
     <h1>Join a workshop!</h1>
-    <section class="workshop-list"></section>
+    <section id="workshop-list" class="workshop-list"></section>
 
     </main>
     <script type="module" src="./workshops.js"></script>
