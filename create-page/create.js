@@ -3,6 +3,8 @@ import { checkAuth, fetchWorkshops, createParticipant, logout } from '../fetch-u
 const form = document.getElementById('participant-form');
 const logoutButton = document.getElementById('logout');
 
+checkAuth();
+
 logoutButton.addEventListener('click', async () => {
     await logout();
 });
@@ -22,4 +24,23 @@ form.addEventListener('submit', async (e) => {
     form.reset();
 
     location.replace('../workshops-page');
+});
+
+window.addEventListener('load', async () => {
+    // grab the select html element from the DOM
+    const selectEl = document.getElementById('workshop-id');
+    // get the workshops from supabase
+    const workshops = await fetchWorkshops();
+    // for each workshop
+    // create an option tag
+    // set the option's value and text content
+    // and append the option to the select
+    for (let workshop of workshops) {
+        const option = document.createElement('option');
+
+        option.value = workshop.id;
+        option.label = workshop.name;
+
+        selectEl.append(option);
+    }
 });
