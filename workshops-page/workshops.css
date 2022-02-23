@@ -1,0 +1,43 @@
+p:hover {
+    background-color: rgb(237, 112, 112);
+}
+
+.participants {
+    border: 3px black solid;
+    margin: 10px;
+    background-color: bisque;
+    width: 260px;    
+}
+
+.participant {
+    font-weight: bolder;
+    font-size: x-large;
+    
+}
+
+.workshop-list {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: -40px;
+}
+
+#add-participant {
+    margin: 20px;
+    border: 2px blue solid;
+    padding: 10px;
+}
+
+a:hover {
+    background-color: aquamarine;
+}
+
+h3 {
+    border: 4px green solid;
+    width: 272px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:khaki;
+    margin-bottom: -10px;
+}
