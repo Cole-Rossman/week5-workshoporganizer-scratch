@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/home.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./workshops.css">
+
+    <title>Workshops Page</title>
 </head>
 
 <body>
@@ -18,15 +20,15 @@
         <div class="gutter-right logo">
             <img src="../assets/big-logo.png" />
         </div>
-    </header>    
+    </header>
     <button id="logout">Logout</button>
-    <main>
-        <h1>You are logged in!</h1>
+    <main class="workshops-main">
+    <a id="add-participant" href="../create-page/">Add participant</a>
+    <h1>Join a workshop!</h1>
+    <section id="workshop-list" class="workshop-list"></section>
+
     </main>
-    <footer>
-        <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
-    </footer>
-    <script type="module" src="./other-page.js"></script>
+    <script type="module" src="./workshops.js"></script>
 </body>
 
 </html>

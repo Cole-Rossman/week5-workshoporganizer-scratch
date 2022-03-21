@@ -1,7 +1,26 @@
-const SUPABASE_URL = '';
-const SUPABASE_KEY = '';
+const SUPABASE_URL = 'https://oulietmefshvjsdknixn.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im91bGlldG1lZnNodmpzZGtuaXhuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDQ0NTAyNzcsImV4cCI6MTk2MDAyNjI3N30.xLaRALCsmulIZooLc5FTZDT0SLfAZjEKegSSVtKRgFI';
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+export async function fetchWorkshops() {
+    const resp = await client.from('workshops').select(`*, participants (*)`);
+
+    return checkError(resp);
+}
+
+export async function createParticipant(participant) {
+    const resp = await client.from('participants').insert({ name: participant.name, workshop_id: participant.workshop_id, contact: participant.contact });
+
+    return checkError(resp);
+}
+
+export async function deleteParticipant(id) {
+    const resp = await client.from('participants').delete().match({ id: id }).single();
+
+    return checkError(resp);
+}
+
 
 export function getUser() {
     return client.auth.session() && client.auth.session().user;
@@ -15,7 +34,7 @@ export function checkAuth() {
 
 export function redirectIfLoggedIn() {
     if (getUser()) {
-        location.replace('./other-page');
+        location.replace('./workshops-page');
     }
 }
 
@@ -37,6 +56,6 @@ export async function logout() {
     return (window.location.href = '../');
 }
 
-// function checkError({ data, error }) {
-//     return error ? console.error(error) : data;
-// }
+function checkError({ data, error }) {
+    return error ? console.error(error) : data;
+}
